@@ -13,12 +13,13 @@ public class Day01 {
 
 	public static void main(String[] args) throws IOException {
 		
-		/*FileWriter fw=new FileWriter("E:\\data.txt",true);
-		fw.write("hehe");
+		FileWriter fw=new FileWriter("E:\\data.txt",true);
+		String str="hehe";
+		fw.write(str);
 		fw.close();
-		System.out.println("write success!");*/
+		System.out.println("write success!");
 		
-		FileReader fw=new FileReader("E:\\data.txt");
+		/*FileReader fw=new FileReader("E:\\data.txt");
 		char[] ch=new char[1024];
 		int data=0;
 		StringBuffer sb=new StringBuffer();
@@ -27,7 +28,7 @@ public class Day01 {
 			sb.append(str);
 		}
 		System.out.println(sb.toString());
-		fw.close();
+		fw.close();*/
 	}
 
 }

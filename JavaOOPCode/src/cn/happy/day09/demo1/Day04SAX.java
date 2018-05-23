@@ -2,7 +2,6 @@ package cn.happy.day09.demo1;
 
 import java.util.Stack;
 
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 

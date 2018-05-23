@@ -178,6 +178,20 @@ A  B   C   C    A   D
 
 
 
+IO 课后习题----2018年5月21日17:25:52
+B  C  B   B  B  A
+
+二。
+1.
+	第一套：字节流读取写入方案
+	FileInputStream :字节流方式读取文本文件
+	FileOutputStream：字节流写入硬盘
+	 
+	第二套：字符流读取写入方案
+	FileReader：字符流读取文本
+	FileWriter：字符流写入文本
+
+2.IOException
 
 
 

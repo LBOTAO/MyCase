@@ -21,7 +21,7 @@ public class FileMethods2 {
 		//调用方法
 		fm.create(file);
 		fm.showFileInfo(file);
-		fm.delete(file);
+		//fm.delete(file);
 	}
 	
 	

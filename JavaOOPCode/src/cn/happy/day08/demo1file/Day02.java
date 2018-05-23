@@ -15,8 +15,8 @@ import java.io.Writer;
 public class Day02 {
 	
 	public static void main(String[] args) throws Exception {
-		//readerData();
-		writerData();
+		readerData();
+		//writerData();
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class Day02 {
 	 */
 	private static void readerData() throws Exception {
 		
-		Reader reader=new FileReader("E:\\data.txt");
+		Reader reader=new FileReader("C:\\Windows\\win.ini");
 		BufferedReader br=new BufferedReader(reader);
 		String line = br.readLine();
 		while (line!=null) {
