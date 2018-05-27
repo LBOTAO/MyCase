@@ -19,15 +19,17 @@ public class SosoMgr {
 	MobileCard mobileCard = new MobileCard();
 	ServicePackage service = null;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		SosoMgr mar = new SosoMgr();
 		mar.paintMainMenu();
 	}
 
 	/**
 	 * 打印主菜单
+	 * 
+	 * @throws Exception
 	 */
-	public void paintMainMenu() {
+	public void paintMainMenu() throws Exception {
 		// 初始化
 		cardUtil.intitScene();
 		System.out.println("\n*******************欢迎使用嗖嗖移动业务大厅******************");
@@ -36,8 +38,6 @@ public class SosoMgr {
 		int menuChoose = input.nextInt();
 		switch (menuChoose) {
 		case 1:
-			// 登录
-			System.out.println("现在处于用户登录");
 			cardMenu();
 			rerurnMenu();
 			break;
@@ -50,11 +50,15 @@ public class SosoMgr {
 		case 3:
 			// 使用嗖嗖
 			System.out.println("现在处于使用嗖嗖");
+			System.out.println("请输入手机卡号:");
+			String number = input.next();
+			cardUtil.userSoso(number); // 调用使用soso
 			rerurnMenu();
 			break;
 		case 4:
 			// 话费充值
 			System.out.println("现在处于话费充值");
+			moneyRecharge();
 			rerurnMenu();
 			break;
 		case 5:
@@ -77,7 +81,7 @@ public class SosoMgr {
 		}
 	}
 
-	public void rerurnMenu() {
+	public void rerurnMenu() throws Exception {
 		System.out.println("输入0返回");
 		int userInput = input.nextInt();
 		while (userInput != 0) {
@@ -130,10 +134,10 @@ public class SosoMgr {
 		String passWord = input.next();
 		System.out.println("请输入预存话费：");
 		double money = input.nextInt();
-		if (!(money>=50)) {
+		if (!(money >= 50)) {
 			System.out.println("至少充值50元及以上资费！");
-			
-		}else {
+
+		} else {
 			while (money < service.getPrice()) {
 				System.out.println("您预存话费金额不足以支付本月固定套餐资费，请重新充值：");
 				money = input.nextInt();
@@ -146,18 +150,20 @@ public class SosoMgr {
 			cardUtil.addCard(card);
 			card.showMeg();
 		}
-		
+
 	}
 
 	/**
 	 * 二级菜单
+	 * 
+	 * @throws Exception
 	 */
-	public void cardMenu() {
+	public void cardMenu() throws Exception {
 		System.out.println("请输入手机卡号：");
-		String number = input.next();
+		String numberMoney = input.next();
 		System.out.println("请输入密码：");
 		String pwd = input.next();
-		if (cardUtil.isLogin(number, pwd)) {
+		if (cardUtil.isLogin(numberMoney, pwd)) {
 			System.out.println("登录成功");
 		} else {
 			return;
@@ -170,7 +176,49 @@ public class SosoMgr {
 		System.out.println("4.套餐变更");
 		System.out.println("5.办理退网");
 		System.out.print("请选择(输入1~5选择功能,其他键返回上一级)：");
+		int key = input.nextInt();
+		switch (key) {
+		case 1:
+			System.out.println("进入本月账单查询======");
+			cardUtil.findByMonthlyBill(numberMoney);
+			break;
+		case 2:
+			System.out.println("套餐余量查询=========");
+			cardUtil.showRemainDetail(numberMoney);
+			break;
+		case 3:
+			System.out.println("打印消费详单=========");
+			cardUtil.printList(numberMoney);
+			break;
+		case 4:
+			System.out.println("套餐变更=========");
+			cardUtil.chargeingPack(numberMoney);
+			break;
+		case 5:
+			System.out.println("办理退网=========");
+			cardUtil.exitNetWork(numberMoney);
+			break;
+		default:
 
+		}
+
+	}
+
+	/**
+	 * 话费充值方法
+	 */
+	public void moneyRecharge() {
+		System.out.println("请输入手机卡号：");
+		String strNum = input.next();
+		boolean is = cardUtil.isExistenceNumber(strNum);
+		if (is) {
+			System.out.println("请输入充值余额：");
+			double strMoney = input.nextDouble();
+			cardUtil.recharge(strNum, strMoney);
+			System.out.println("充值成功,当前话费余额为" + CardUtil.cards.get(strNum).getMoney() + "元");
+		} else {
+			System.out.println("手机输入有误，请重新输入手机号：");
+		}
 	}
 
 }

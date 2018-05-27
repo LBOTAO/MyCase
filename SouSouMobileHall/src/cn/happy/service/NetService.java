@@ -14,7 +14,8 @@ public interface NetService {
 	 * @param flow
 	 * @param card
 	 * @return
+	 * @throws Exception 
 	 */
-	public int netPlay(int flow,MobileCard card);
+	public int netPlay(int flow,MobileCard card) throws Exception;
 
 }

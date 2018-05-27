@@ -20,22 +20,6 @@ public abstract class ServicePackage {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
-	
 
-	/**
-	 * 
-	 */
-	public ServicePackage() {
-		super();
-	}
-
-	/**
-	 * @param price
-	 */
-	public ServicePackage(double price) {
-		super();
-		this.price = price;
-	}
 
 }

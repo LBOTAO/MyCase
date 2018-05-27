@@ -48,14 +48,6 @@ public class ConsumInfo {
 
 
 	/**
-	 * 
-	 */
-	public ConsumInfo() {
-		super();
-	}
-
-
-	/**
 	 * @param number
 	 * @param type
 	 * @param consumData
@@ -65,7 +57,7 @@ public class ConsumInfo {
 		this.number = number;
 		this.type = type;
 		this.consumData = consumData;
-	}  
+	} 
     
     
     

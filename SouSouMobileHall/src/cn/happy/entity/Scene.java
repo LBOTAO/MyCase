@@ -50,15 +50,6 @@ public class Scene {
 
 
 	/**
-	 * 
-	 */
-	public Scene() {
-		super();
-	}
-
-
-
-	/**
 	 * @param type
 	 * @param data
 	 * @param description

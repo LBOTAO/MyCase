@@ -99,6 +99,9 @@ public class MobileCard {
 		this.realFlow = realFlow;
 	}
 
+	
+	
+	
 	/**
 	 * 
 	 */

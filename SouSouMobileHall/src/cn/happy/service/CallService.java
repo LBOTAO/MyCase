@@ -14,7 +14,8 @@ public interface CallService {
 	 * @param mainCount
 	 * @param card
 	 * @return
+	 * @throws Exception 
 	 */
-	public int call(int mainCount,MobileCard card);
+	public int call(int mainCount,MobileCard card) throws Exception;
 
 }

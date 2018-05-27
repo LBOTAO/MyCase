@@ -13,7 +13,8 @@ public interface SendService {
 	 * @param count
 	 * @param card
 	 * @return
+	 * @throws Exception 
 	 */
-	public int send(int count,MobileCard card);
+	public int send(int count,MobileCard card) throws Exception;
 
 }
