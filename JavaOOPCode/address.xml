@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="GB2312"?>  
-<RESULT>  
-<VALUE>　　   
-  <NO>A1234</NO>　　   
-  <ADDR>河南省郑州市</ADDR>  
-</VALUE>  
-<VALUE>　　   
-  <NO>B1234</NO> 　   
-  <ADDR>河南省郑州市二七区</ADDR>  
-</VALUE>  
-<VALUE>　　   
-  <NO>C1234</NO> 　   
-  <ADDR>河北省保定市莲池区</ADDR>  
-</VALUE>  
+<?xml version="1.0" encoding="utf-8" standalone="no"?><RESULT>
+	<VALUE type="s1">
+		<NO>A1234</NO>
+		<ADDR>娌冲崡鐪侀儜宸炲競</ADDR>
+	</VALUE>
+	<VALUE type="s2">
+		<NO>B1234</NO>
+		<ADDR>娌冲崡鐪侀儜宸炲競浜屼竷鍖�</ADDR>
+	</VALUE>
+	<VALUE type="s3">
+		<NO>C1234</NO>
+		<ADDR>娌冲寳鐪佷繚瀹氬競鑾叉睜鍖�</ADDR>
+	</VALUE>
+	
 </RESULT>

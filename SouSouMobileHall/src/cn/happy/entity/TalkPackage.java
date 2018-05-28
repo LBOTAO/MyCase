@@ -1,5 +1,7 @@
 package cn.happy.entity;
 
+import java.io.Serializable;
+
 import cn.happy.service.CallService;
 import cn.happy.service.SendService;
 import cn.happy.util.Common;
@@ -10,7 +12,7 @@ import cn.happy.util.Common;
  * @author liutao
  * @data 2018年5月23日 上午10:24:15
  */
-public class TalkPackage extends ServicePackage implements CallService, SendService {
+public class TalkPackage extends ServicePackage implements CallService, SendService,Serializable {
 	// 通话时长
 	private int talkTime;
 	// 短信条数

@@ -195,11 +195,16 @@ B  C  B   B  B  A
 
 
 
+xml解析    2018年5月28日10:33:51
 
 
+xml Extensible Markup Language 可扩展标记语言
 
-
-
+解析方式有四种 
+six
+dom
+dom4j
+jdom
 
 
 

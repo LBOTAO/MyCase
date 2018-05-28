@@ -1,5 +1,7 @@
 package cn.happy.entity;
 
+import java.io.Serializable;
+
 import cn.happy.service.CallService;
 import cn.happy.service.NetService;
 import cn.happy.service.SendService;
@@ -10,7 +12,7 @@ import cn.happy.service.SendService;
  * @author liutao
  * @data 2018年5月23日 上午10:29:31
  */
-public class SuperPackage extends ServicePackage implements CallService, SendService, NetService {
+public class SuperPackage extends ServicePackage implements CallService, SendService, NetService,Serializable {
 
 	// 通话时长
 	private int talkTime;

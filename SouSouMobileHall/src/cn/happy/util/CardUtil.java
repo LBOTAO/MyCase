@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,11 +33,22 @@ import cn.happy.service.SendService;
  */
 public class CardUtil {
 	Scanner input = new Scanner(System.in);
+	
+    static LastingFile obj=new LastingFile();
 	// 已注册嗖嗖移动用户列表
 	public static Map<String, MobileCard> cards = new HashMap<String, MobileCard>();
 	// 所有卡号的消费记录列表
 	public static Map<String, List<ConsumInfo>> consumInfos = new HashMap<String, List<ConsumInfo>>();
 
+	public void init() throws Exception{
+		ArrayList<MobileCard> list = obj.objecInputFile();
+		
+		for (MobileCard item : list) {
+			cards.put(item.getCardNumber(), item);
+		}
+	}
+	
+	
 	// 使用场景列表
 	Map<Integer, Scene> scenes = new HashMap<Integer, Scene>();
 
@@ -53,8 +65,9 @@ public class CardUtil {
 	 * @param number
 	 * @param pwd
 	 * @return
+	 * @throws Exception 
 	 */
-	public boolean isLogin(String number, String pwd) {
+	public boolean isLogin(String number, String pwd) throws Exception {
 
 		if (cards.containsKey(number) && (cards.get(number).getPassWord().equals(pwd))) {
 			return true;
@@ -89,8 +102,13 @@ public class CardUtil {
 	 * 注册新卡
 	 * 
 	 * @param card
+	 * @throws Exception 
 	 */
-	public void addCard(MobileCard card) {
+	public void addCard(MobileCard card) throws Exception {
+		//cards.put(card.getCardNumber(), card);
+		//每次注册序列化到本地
+		obj.objectOutPutFile(card);
+		//存进map
 		cards.put(card.getCardNumber(), card);
 	}
 
@@ -205,6 +223,7 @@ public class CardUtil {
 	 * @return
 	 */
 	public boolean isExistenceNumber(String number) {
+		
 		Set<String> keySet = cards.keySet();
 		Iterator<String> iterator = keySet.iterator();
 		while (iterator.hasNext()) {

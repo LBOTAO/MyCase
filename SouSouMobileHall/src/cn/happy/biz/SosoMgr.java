@@ -30,7 +30,7 @@ public class SosoMgr {
 	 * @throws Exception
 	 */
 	public void paintMainMenu() throws Exception {
-		// 初始化
+		// 初始化用户
 		cardUtil.intitScene();
 		System.out.println("\n*******************欢迎使用嗖嗖移动业务大厅******************");
 		System.out.println("1.用户登录   2.用户注册    3.使用嗖嗖   4.话费充值    5.资费说明   6.退出系统 ");
@@ -93,8 +93,9 @@ public class SosoMgr {
 
 	/**
 	 * 用户注册流程
+	 * @throws Exception 
 	 */
-	public void registCard() {
+	public void registCard() throws Exception {
 		System.out.println("************可选择的卡号************");
 
 		String[] cardNumbers = cardUtil.getNewNumber(9);
@@ -130,8 +131,10 @@ public class SosoMgr {
 
 		System.out.println("请输入姓名：");
 		String userName = input.next();
+		mobileCard.setUserName(userName);
 		System.out.println("请输入密码：");
 		String passWord = input.next();
+		mobileCard.setPassWord(passWord);
 		System.out.println("请输入预存话费：");
 		double money = input.nextInt();
 		if (!(money >= 50)) {
@@ -145,16 +148,20 @@ public class SosoMgr {
 			// 当前输入的余额减去月租
 			mobileCard.setMoney(money - service.getPrice());
 			// 注册新用户添加到集合
-			MobileCard card = new MobileCard(mobileCard.getCardNumber(), userName, passWord, mobileCard.getSerPackage(),
-					mobileCard.getMoney());
-			cardUtil.addCard(card);
-			card.showMeg();
+			/*MobileCard card = new MobileCard(mobileCard.getCardNumber(), userName, passWord, mobileCard.getSerPackage(),
+					mobileCard.getMoney());*/
+			
+			//card.showMeg();
+			cardUtil.addCard(mobileCard);   //注册新卡
+			mobileCard.showMeg();
+			
+			
 		}
 
 	}
 
 	/**
-	 * 二级菜单
+	 * 登陆后二级菜单
 	 * 
 	 * @throws Exception
 	 */
@@ -163,6 +170,7 @@ public class SosoMgr {
 		String numberMoney = input.next();
 		System.out.println("请输入密码：");
 		String pwd = input.next();
+		cardUtil.init();
 		if (cardUtil.isLogin(numberMoney, pwd)) {
 			System.out.println("登录成功");
 		} else {

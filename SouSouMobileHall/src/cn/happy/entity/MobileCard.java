@@ -1,12 +1,14 @@
 package cn.happy.entity;
 
+import java.io.Serializable;
+
 /**
  * soso移动卡类
  * 
  * @author liutao
  * @data 2018年5月23日 上午10:21:47
  */
-public class MobileCard {
+public class MobileCard implements Serializable{
 
 	// 卡号
 	private String cardNumber;

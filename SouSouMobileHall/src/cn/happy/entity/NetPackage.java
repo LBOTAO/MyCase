@@ -1,5 +1,7 @@
 package cn.happy.entity;
 
+import java.io.Serializable;
+
 import cn.happy.service.NetService;
 
 /**
@@ -8,7 +10,7 @@ import cn.happy.service.NetService;
  * @author liutao
  * @data 2018年5月23日 上午10:27:49
  */
-public class NetPackage extends ServicePackage implements NetService {
+public class NetPackage extends ServicePackage implements NetService,Serializable {
 	/**
 	 * 上网流量
 	 */
